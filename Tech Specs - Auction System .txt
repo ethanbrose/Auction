@@ -1,0 +1,52 @@
+AUCTION DESIGN
+
+• When a user decides to auction off an item, they must choose a starting price, a set time for how long they would like their item to be up for sale, and a buy now price
+• If the seller wants, they can add a 150 char description of the item
+• When the auction gets to the final 10 minutes, a one minute extension is added for every new bid.
+• In order to list an item, a small fee must be made.
+• The highest bid will be listed under the item along with the remaining time, buy now price, and seller information
+• Bidders can also pull their bid at any moment, and the previous highest bid will then be listed.
+• instead of selecting a new price, bidders can "quick bid" which will place an offer 5% larger than the previous bid
+• if a bidder makes an offer that is 20% larger than the previous bid, a confirmation will have to be made (this will prevent bidders from unintentionally bidding more than they would like)
+• If at the end of the time, no one has placed on the item, the item will be taken off the market and returned to the seller.
+• A buyer can also make an offer to the seller. If the seller accepts their offer the item will be sold to them.
+• If a seller knows they will not negotiate, they can click a button which will not allow any offers to be made to them.
+
+TECHNICAL SPEC
+
+Objects
+Time counter - type time
+Starting price - type double
+Buy now price - type double
+Description of object - type string (limit 150 char length and one image)
+Final price - type double
+SellerWallet ID - type string
+BidderWallet ID - type string
+
+
+Methods needed
+
+- Quick bid function of type void
+	- calculates the price that is 5% larger the their previous bid and updates their bid
+- buy now of type void (buy now price)
+	- executes buy method in advance before the end of the auction. 
+- buy of type void (final price, bidderWallet ID, sellerWallet ID)
+	- check if there is available balance in the buyer's wallet
+	- deducts price form bidder's wallet and puts it into the seller's 
+	- object in question's ownership is transferred to the buyer's 
+- confirmation of type string
+	- if offer is 20% more than previous bid, then the system prompts the question "are you sure you want to bid for [amt]?"
+	- if statement to check the bidder's response (yes or no)
+	- keeps original bid if no, updates to new bid if yes 
+- Countdown function of type void 
+	- when this function detects the time is at 10 mins, [time counter] is extended one minute more for every bid
+- Pull method of type void
+	- enables the seller to pull their item from the market
+- Will negotiate method of type boolean
+	- indicates if the seller wants to negotiate or not
+	- if not, then the price of object is non-negotiable. One buy price. 
+
+
+Priority list of features
+ESSENTIAL: buy, buy now, countdown, and pull methods
+EXTRA: quick bid, will negotiate, confirmation methods. 
