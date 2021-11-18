@@ -9,7 +9,22 @@
 				"inputs": [
 					{
 						"internalType": "uint256",
+						"name": "numWeeks",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
 						"name": "numDays",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "numHours",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "numMins",
 						"type": "uint256"
 					},
 					{
@@ -51,6 +66,32 @@
 				"name": "bid",
 				"outputs": [],
 				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "curBid",
+						"type": "uint256"
+					}
+				],
+				"name": "bidBigger",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "description",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
 				"type": "function"
 			},
 			{
@@ -185,6 +226,13 @@
 			},
 			{
 				"inputs": [],
+				"name": "pullAuction",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
 				"name": "quickBid",
 				"outputs": [],
 				"stateMutability": "nonpayable",
@@ -193,12 +241,53 @@
 			{
 				"inputs": [
 					{
+						"internalType": "string",
+						"name": "_description",
+						"type": "string"
+					}
+				],
+				"name": "setDescription",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
 						"internalType": "uint256",
-						"name": "_duration",
+						"name": "numWeeks",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "numDays",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "numHours",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "numMins",
 						"type": "uint256"
 					}
 				],
 				"name": "setDuration",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_highestBidder",
+						"type": "address"
+					}
+				],
+				"name": "setHighestBidder",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
@@ -280,11 +369,11 @@
 			]
 		},
 		"AuctionSystem.sol": {
-			"keccak256": "0x3acdc84d9a5db7b35a33e638dc8ef7cb86a4a9618e5781815593705b3cf7719d",
+			"keccak256": "0xcc0edb275587b8d74cc209b880478c9697200934c3edabb231edcb0d304f9eec",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://3d920b61a4786d68cde968ecc22c615a266216efcf5798ddac0b0e55c0ce141a",
-				"dweb:/ipfs/QmV3sTv9hdb1PochwvTP6iStkoE8ouFZjn1toQHDMa9JTj"
+				"bzz-raw://3344ecd1c06d81414452277e75c7e84f1f14feeb382d79b8f80ea666fbecedb6",
+				"dweb:/ipfs/QmdmnDqX5goiPZsnEs1YsGnhVwhxpKfMrSimEzGgG6omU1"
 			]
 		}
 	},
