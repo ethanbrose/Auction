@@ -9,22 +9,7 @@
 				"inputs": [
 					{
 						"internalType": "uint256",
-						"name": "numWeeks",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
 						"name": "numDays",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "numHours",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "numMins",
 						"type": "uint256"
 					},
 					{
@@ -89,6 +74,19 @@
 						"internalType": "string",
 						"name": "",
 						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getCurrentTimestamp",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
 					}
 				],
 				"stateMutability": "view",
@@ -255,22 +253,7 @@
 				"inputs": [
 					{
 						"internalType": "uint256",
-						"name": "numWeeks",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
 						"name": "numDays",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "numHours",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "numMins",
 						"type": "uint256"
 					}
 				],
@@ -369,11 +352,11 @@
 			]
 		},
 		"AuctionSystem.sol": {
-			"keccak256": "0xcc0edb275587b8d74cc209b880478c9697200934c3edabb231edcb0d304f9eec",
+			"keccak256": "0x37f7852d01a53215cf4af3347be2550e63838894439e5b38aa6d8cf0c7476dcd",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://3344ecd1c06d81414452277e75c7e84f1f14feeb382d79b8f80ea666fbecedb6",
-				"dweb:/ipfs/QmdmnDqX5goiPZsnEs1YsGnhVwhxpKfMrSimEzGgG6omU1"
+				"bzz-raw://554dce890443f89f22e7d344098fef6e3abbef64820385d8f54f144f26596f5d",
+				"dweb:/ipfs/QmcSYcnnKDjB2rhed8MWhx91uWcrBZRpBxhSQQhydkieFZ"
 			]
 		}
 	},

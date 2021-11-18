@@ -22,14 +22,14 @@ contract AuctionSystem {
     
     
     //The constructor initializes many variables. I guess it is OG design to choose the auction duration. There are a lot of choices of to make about the duration now.
-    constructor (uint256 numWeeks, uint256 numDays, uint256 numHours, uint256 numMins, uint256 startingPrice) {
-        require (startingPrice > 0 && numWeeks >= 0 && numDays >= 0 && numHours >= 0 && numMins >= 0, "Error: Invalid parameter(s). Price must be greater than 0 and time intervals can be specified as 0 or greater.");
+    constructor (uint256 numDays, uint256 startingPrice) {
+        require (startingPrice > 0 && numDays >= 0, "Error: Invalid parameter(s). Price must be greater than 0 and time intervals can be specified as 0 or greater.");
         highestBid = startingPrice;
         owner = payable (msg.sender);
-        duration = block.timestamp + (numWeeks * 1 weeks);
+        //duration = block.timestamp + (numWeeks * 1 weeks);
         duration = block.timestamp + (numDays * 1 days);
-        duration = block.timestamp + (numHours * 1 hours);
-        duration = block.timestamp + (numMins * 1 minutes);
+        //duration = block.timestamp + (numHours * 1 hours);
+        //duration = block.timestamp + (numMins * 1 minutes);
     }
     
     
@@ -40,14 +40,14 @@ contract AuctionSystem {
         require (curBid > highestBid, "Error: your bid is not smaller than the current highest!");
         highestBid = curBid;
         highestBidder = msg.sender;
-        duration = block.timestamp + (10 minutes);
+        duration += (1 * 10 minutes);
     }
     
     function bidBigger (uint256 curBid) public notEnded {
         require (curBid > highestBid, "Error: your bid is not smaller than the current highest!");
         highestBid = curBid;
         highestBidder = msg.sender;
-        duration = block.timestamp + (10 minutes);
+        duration += (1 * 10 minutes);
     }
     
     
@@ -55,6 +55,7 @@ contract AuctionSystem {
     function quickBid () public notEnded {
             highestBid = highestBid + (highestBid/20);
             highestBidder = msg.sender;
+            duration += (1 * 10 minutes);
     }
     
     event Win (address _highestBidder, uint256 _highestBid);
@@ -80,7 +81,7 @@ contract AuctionSystem {
         require (msg.sender == owner, "Error: You may not do that.");
         delete nft;
         delete nftID;
-        setDuration (0, 0, 0, 0);
+        setDuration (0);
         setHighestBidder(address(0));
     }
     
@@ -120,14 +121,17 @@ contract AuctionSystem {
         return highestBid;
     }
     
+    function getCurrentTimestamp () public view returns (uint256) {
+        return block.timestamp;
+    }
     
     // setter section
     
-    function setDuration (uint256 numWeeks, uint256 numDays, uint256 numHours, uint256 numMins) public {
-        duration = block.timestamp + (numWeeks * 1 weeks);
-        duration = block.timestamp + (numDays * 1 days);
-        duration = block.timestamp + (numHours * 1 hours);
-        duration = block.timestamp + (numMins * 1 minutes);
+    function setDuration (uint256 numDays) public {
+        //duration = block.timestamp + (numWeeks * 1 weeks);
+        duration = (numDays * 1 days);
+        //duration = block.timestamp + (numHours * 1 hours);
+        //duration = block.timestamp + (numMins * 1 minutes);
     }
     
     function setHighestBidder (address _highestBidder) public {
